@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.permissionx.guolindev.dialog
+package com.permissionx.qizhou1994.dialog
 
 import android.Manifest
 import android.content.Context
@@ -24,9 +24,9 @@ import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
-import com.permissionx.guolindev.R
-import com.permissionx.guolindev.databinding.PermissionxDefaultDialogLayoutBinding
-import com.permissionx.guolindev.databinding.PermissionxPermissionItemBinding
+import com.permissionx.qizhou1994.R
+import com.permissionx.qizhou1994.databinding.PermissionxDefaultDialogLayoutBinding
+import com.permissionx.qizhou1994.databinding.PermissionxPermissionItemBinding
 
 /**
  * Default rationale dialog to show if developers did not implement their own custom rationale dialog.

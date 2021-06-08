@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.permissionx.guolindev.request;
+package com.permissionx.qizhou1994.request;
 
 import androidx.annotation.NonNull;
 
-import com.permissionx.guolindev.dialog.RationaleDialog;
-import com.permissionx.guolindev.dialog.RationaleDialogFragment;
+import com.permissionx.qizhou1994.dialog.RationaleDialog;
+import com.permissionx.qizhou1994.dialog.RationaleDialogFragment;
 
 import java.util.List;
 
 /**
- * Provide specific scopes for {@link com.permissionx.guolindev.callback.ExplainReasonCallback} and {@link com.permissionx.guolindev.callback.ExplainReasonCallbackWithBeforeParam} to give it specific functions to call.
+ * Provide specific scopes for {@link com.permissionx.qizhou1994.callback.ExplainReasonCallback} and {@link com.permissionx.qizhou1994.callback.ExplainReasonCallbackWithBeforeParam} to give it specific functions to call.
  * @author guolin
  * @since 2020/3/18
  */

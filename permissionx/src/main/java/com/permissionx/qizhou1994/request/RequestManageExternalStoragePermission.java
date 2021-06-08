@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.permissionx.guolindev.request;
+package com.permissionx.qizhou1994.request;
 
 import android.os.Build;
 import android.os.Environment;

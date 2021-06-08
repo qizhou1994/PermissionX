@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.permissionx.guolindev.request;
+package com.permissionx.qizhou1994.request;
 
 import android.Manifest;
 import android.app.Dialog;
@@ -29,13 +29,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
-import com.permissionx.guolindev.callback.ExplainReasonCallback;
-import com.permissionx.guolindev.callback.ExplainReasonCallbackWithBeforeParam;
-import com.permissionx.guolindev.callback.ForwardToSettingsCallback;
-import com.permissionx.guolindev.callback.RequestCallback;
-import com.permissionx.guolindev.dialog.DefaultDialog;
-import com.permissionx.guolindev.dialog.RationaleDialog;
-import com.permissionx.guolindev.dialog.RationaleDialogFragment;
+import com.permissionx.qizhou1994.callback.ExplainReasonCallback;
+import com.permissionx.qizhou1994.callback.ExplainReasonCallbackWithBeforeParam;
+import com.permissionx.qizhou1994.callback.ForwardToSettingsCallback;
+import com.permissionx.qizhou1994.callback.RequestCallback;
+import com.permissionx.qizhou1994.dialog.DefaultDialog;
+import com.permissionx.qizhou1994.dialog.RationaleDialog;
+import com.permissionx.qizhou1994.dialog.RationaleDialogFragment;
 
 import java.util.LinkedHashSet;
 import java.util.List;

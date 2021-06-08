@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.permissionx.app.databinding.FragmentMainBinding
-import com.permissionx.guolindev.PermissionX
+import com.permissionx.qizhou1994.PermissionX
 
 class MainFragment : Fragment() {
 

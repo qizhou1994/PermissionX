@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.permissionx.guolindev.callback;
+package com.permissionx.qizhou1994.callback;
 
-import com.permissionx.guolindev.request.ExplainScope;
-import com.permissionx.guolindev.request.PermissionBuilder;
+import com.permissionx.qizhou1994.request.ExplainScope;
+import com.permissionx.qizhou1994.request.PermissionBuilder;
 
 import java.util.List;
 

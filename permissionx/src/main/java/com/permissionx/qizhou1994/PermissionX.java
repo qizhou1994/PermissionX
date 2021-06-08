@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.permissionx.guolindev;
+package com.permissionx.qizhou1994;
 
 import android.content.Context;
 import android.content.pm.PackageManager;

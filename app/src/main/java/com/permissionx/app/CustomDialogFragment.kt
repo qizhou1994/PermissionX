@@ -8,10 +8,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.permissionx.app.databinding.CustomDialogLayoutBinding
 import com.permissionx.app.databinding.PermissionsItemBinding
-import com.permissionx.guolindev.dialog.RationaleDialogFragment
+import com.permissionx.qizhou1994.dialog.RationaleDialogFragment
 
 @TargetApi(30)
 class CustomDialogFragment() : RationaleDialogFragment() {

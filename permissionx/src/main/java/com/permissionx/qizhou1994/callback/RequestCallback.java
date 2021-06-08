@@ -14,28 +14,29 @@
  * limitations under the License.
  */
 
-package com.permissionx.guolindev.callback;
+package com.permissionx.qizhou1994.callback;
 
-import com.permissionx.guolindev.request.ForwardScope;
-import com.permissionx.guolindev.request.PermissionBuilder;
+import com.permissionx.qizhou1994.request.PermissionBuilder;
 
 import java.util.List;
 
 /**
- * Callback for {@link PermissionBuilder#onForwardToSettings(ForwardToSettingsCallback)} method.
+ * Callback for {@link PermissionBuilder#request(RequestCallback)} method.
  *
  * @author guolin
  * @since 2020/6/7
  */
-public interface ForwardToSettingsCallback {
+public interface RequestCallback {
 
     /**
-     * Called when you should tell user to allow these permissions in settings.
-     * @param scope
-     *          Scope to show rationale dialog.
+     * Callback for the request result.
+     * @param allGranted
+     *          Indicate if all permissions that are granted.
+     * @param grantedList
+     *          All permissions that granted by user.
      * @param deniedList
-     *          Permissions that should allow in settings.
+     *          All permissions that denied by user.
      */
-    void onForwardToSettings(ForwardScope scope, List<String> deniedList);
+    void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList);
 
 }

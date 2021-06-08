@@ -8,12 +8,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.permissionx.app.databinding.ActivityMainJavaBinding;
-import com.permissionx.guolindev.PermissionX;
-import com.permissionx.guolindev.callback.ExplainReasonCallbackWithBeforeParam;
-import com.permissionx.guolindev.callback.ForwardToSettingsCallback;
-import com.permissionx.guolindev.callback.RequestCallback;
-import com.permissionx.guolindev.request.ExplainScope;
-import com.permissionx.guolindev.request.ForwardScope;
+import com.permissionx.qizhou1994.PermissionX;
+import com.permissionx.qizhou1994.callback.ExplainReasonCallbackWithBeforeParam;
+import com.permissionx.qizhou1994.callback.ForwardToSettingsCallback;
+import com.permissionx.qizhou1994.callback.RequestCallback;
+import com.permissionx.qizhou1994.request.ExplainScope;
+import com.permissionx.qizhou1994.request.ForwardScope;
 
 import java.util.List;
 

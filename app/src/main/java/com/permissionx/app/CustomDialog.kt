@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.View
 import com.permissionx.app.databinding.CustomDialogLayoutBinding
 import com.permissionx.app.databinding.PermissionsItemBinding
-import com.permissionx.guolindev.dialog.RationaleDialog
+import com.permissionx.qizhou1994.dialog.RationaleDialog
 
 @TargetApi(30)
 class CustomDialog(context: Context, private val message: String, private val permissions: List<String>) : RationaleDialog(context, R.style.CustomDialog) {

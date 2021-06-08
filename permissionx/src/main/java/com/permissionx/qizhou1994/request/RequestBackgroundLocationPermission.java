@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.permissionx.guolindev.request;
+package com.permissionx.qizhou1994.request;
 
 import android.Manifest;
 import android.os.Build;
 
-import com.permissionx.guolindev.PermissionX;
+import com.permissionx.qizhou1994.PermissionX;
 
 import java.util.ArrayList;
 import java.util.List;

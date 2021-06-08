@@ -14,30 +14,28 @@
  * limitations under the License.
  */
 
-package com.permissionx.guolindev.callback;
+package com.permissionx.qizhou1994.callback;
 
-import com.permissionx.guolindev.request.ExplainScope;
-import com.permissionx.guolindev.request.PermissionBuilder;
+import com.permissionx.qizhou1994.request.ForwardScope;
+import com.permissionx.qizhou1994.request.PermissionBuilder;
 
 import java.util.List;
 
 /**
- * Callback for {@link PermissionBuilder#onExplainRequestReason(ExplainReasonCallbackWithBeforeParam)} method.
+ * Callback for {@link PermissionBuilder#onForwardToSettings(ForwardToSettingsCallback)} method.
  *
  * @author guolin
  * @since 2020/6/7
  */
-public interface ExplainReasonCallbackWithBeforeParam {
+public interface ForwardToSettingsCallback {
 
     /**
-     * Called when you should explain why you need these permissions.
+     * Called when you should tell user to allow these permissions in settings.
      * @param scope
      *          Scope to show rationale dialog.
      * @param deniedList
-     *          Permissions that you should explain.
-     * @param beforeRequest
-     *          Indicate it's before or after permission request. Work with {@link PermissionBuilder#explainReasonBeforeRequest()}
+     *          Permissions that should allow in settings.
      */
-    void onExplainReason(ExplainScope scope, List<String> deniedList, boolean beforeRequest);
+    void onForwardToSettings(ForwardScope scope, List<String> deniedList);
 
 }

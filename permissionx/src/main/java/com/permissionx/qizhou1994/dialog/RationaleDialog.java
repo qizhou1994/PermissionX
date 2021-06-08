@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.permissionx.guolindev.dialog;
+package com.permissionx.qizhou1994.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
