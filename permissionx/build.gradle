@@ -25,6 +25,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.github.jitpack:android-example:1.0.1'
 }
 
 apply plugin: 'com.github.panpf.bintray-publish'
@@ -39,6 +40,8 @@ allprojects {
 buildscript {
     repositories {
         jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url "https://www.jitpack.io" }
     }
     dependencies {
         classpath 'com.github.panpf.bintray-publish:bintray-publish:1.0.0'
