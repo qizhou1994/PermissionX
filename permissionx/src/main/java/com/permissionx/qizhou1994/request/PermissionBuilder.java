@@ -154,6 +154,10 @@ public class PermissionBuilder {
      */
     ForwardToSettingsCallback forwardToSettingsCallback;
 
+    public void setShowDialogCalled(boolean showDialogCalled) {
+        this.showDialogCalled = showDialogCalled;
+    }
+
     public PermissionBuilder(FragmentActivity activity,
                              Fragment fragment,
                              Set<String> normalPermissions,
