@@ -284,7 +284,7 @@ public class PermissionBuilder {
      * @param dialog                 Dialog to explain to user why these permissions are necessary.
      */
     void showHandlePermissionDialog(final ChainTask chainTask, final boolean showReasonOrGoSettings, @NonNull final RationaleDialog dialog) {
-        showDialogCalled = true;
+//        showDialogCalled = true;
         final List<String> permissions = dialog.getPermissionsToRequest();
         if (permissions.isEmpty()) {
             chainTask.finish();
@@ -336,7 +336,7 @@ public class PermissionBuilder {
      * @param dialogFragment         DialogFragment to explain to user why these permissions are necessary.
      */
     void showHandlePermissionDialog(final ChainTask chainTask, final boolean showReasonOrGoSettings, @NonNull final RationaleDialogFragment dialogFragment) {
-        showDialogCalled = true;
+//        showDialogCalled = true;
         final List<String> permissions = dialogFragment.getPermissionsToRequest();
         if (permissions.isEmpty()) {
             chainTask.finish();
