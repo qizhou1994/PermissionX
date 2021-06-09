@@ -125,6 +125,7 @@ class DefaultDialog(context: Context,
             if ((permission in allSpecialPermissions && !tempSet.contains(permission))
                 || (permissionGroup != null && !tempSet.contains(permissionGroup))) {
                 val itemBinding = PermissionxPermissionItemBinding.inflate(layoutInflater, binding.permissionsLayout, false)
+                itemBinding.root.visibility=View.GONE
                 when(permission) {
                     Manifest.permission.ACCESS_BACKGROUND_LOCATION -> {
                         itemBinding.permissionText.text = context.getString(R.string.permissionx_access_background_location)
