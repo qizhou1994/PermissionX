@@ -283,6 +283,7 @@ public class PermissionBuilder {
      * @param showReasonOrGoSettings Indicates should show explain reason or forward to Settings.
      * @param dialog                 Dialog to explain to user why these permissions are necessary.
      */
+    public boolean cancel = true;
     void showHandlePermissionDialog(final ChainTask chainTask, final boolean showReasonOrGoSettings, @NonNull final RationaleDialog dialog) {
 //        showDialogCalled = true;
         final List<String> permissions = dialog.getPermissionsToRequest();
@@ -294,8 +295,8 @@ public class PermissionBuilder {
         dialog.show();
         View positiveButton = dialog.getPositiveButton();
         View negativeButton = dialog.getNegativeButton();
-        dialog.setCancelable(false);
-        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(cancel);
+        dialog.setCanceledOnTouchOutside(cancel);
         positiveButton.setClickable(true);
         positiveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -345,7 +346,7 @@ public class PermissionBuilder {
         dialogFragment.showNow(getFragmentManager(), "PermissionXRationaleDialogFragment");
         View positiveButton = dialogFragment.getPositiveButton();
         View negativeButton = dialogFragment.getNegativeButton();
-        dialogFragment.setCancelable(false);
+        dialogFragment.setCancelable(cancel);
         positiveButton.setClickable(true);
         positiveButton.setOnClickListener(new View.OnClickListener() {
             @Override

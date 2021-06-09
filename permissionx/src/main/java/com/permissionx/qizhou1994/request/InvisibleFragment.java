@@ -236,6 +236,7 @@ public class InvisibleFragment extends Fragment {
                     }
                 }
             }
+            Log.e("de","de");
             List<String> deniedPermissions = new ArrayList<>(); // used to validate the deniedPermissions and permanentDeniedPermissions
             deniedPermissions.addAll(pb.deniedPermissions);
             deniedPermissions.addAll(pb.permanentDeniedPermissions);
@@ -250,14 +251,18 @@ public class InvisibleFragment extends Fragment {
             if (allGranted) { // If all permissions are granted, finish current task directly.
                 task.finish();
             } else {
+
                 boolean shouldFinishTheTask = true; // Indicate if we should finish the task
                 // If explainReasonCallback is not null and there're denied permissions. Try the ExplainReasonCallback.
                 if ((pb.explainReasonCallback != null || pb.explainReasonCallbackWithBeforeParam != null) && !showReasonList.isEmpty()) {
+                    Log.e("de","explainReasonCallback");
                     shouldFinishTheTask = false; // shouldn't because ExplainReasonCallback handles it
                     if (pb.explainReasonCallbackWithBeforeParam != null) {
+                        Log.e("de","explainReasonCallbackWithBeforeParam");
                         // callback ExplainReasonCallbackWithBeforeParam prior to ExplainReasonCallback
                         pb.explainReasonCallbackWithBeforeParam.onExplainReason(task.getExplainScope(), new ArrayList<>(pb.deniedPermissions), false);
                     } else {
+                        Log.e("de","onExplainReason");
                         pb.explainReasonCallback.onExplainReason(task.getExplainScope(), new ArrayList<>(pb.deniedPermissions));
                     }
                     // store these permanently denied permissions or they will be lost when request again.
@@ -265,6 +270,7 @@ public class InvisibleFragment extends Fragment {
                 }
                 // If forwardToSettingsCallback is not null and there're permanently denied permissions. Try the ForwardToSettingsCallback.
                 else if (pb.forwardToSettingsCallback != null && (!forwardList.isEmpty() || !pb.tempPermanentDeniedPermissions.isEmpty())) {
+                    Log.e("de","forwardToSettingsCallback");
                     shouldFinishTheTask = false; // shouldn't because ForwardToSettingsCallback handles it
                     pb.tempPermanentDeniedPermissions.clear(); // no need to store them anymore once onForwardToSettings callback.
                     pb.forwardToSettingsCallback.onForwardToSettings(task.getForwardScope(), new ArrayList<>(pb.permanentDeniedPermissions));
@@ -274,8 +280,10 @@ public class InvisibleFragment extends Fragment {
                 // showRequestReasonDialog or showForwardToSettingsDialog in the callback.
                 // At this case and all other cases, task should be finished.
                 if (shouldFinishTheTask || !pb.showDialogCalled) {
+                    Log.e("de","task.finish();");
                     task.finish();
                 }
+                Log.e("de","showDialogCalled");
                 // Reset this value after each request. If we don't do this, developer invoke showRequestReasonDialog in ExplainReasonCallback
                 // but didn't invoke showForwardToSettingsDialog in ForwardToSettingsCallback, the request process will be lost. Because the
                 // previous showDialogCalled affect the next request logic.

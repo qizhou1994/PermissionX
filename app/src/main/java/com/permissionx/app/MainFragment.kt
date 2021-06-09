@@ -1,6 +1,7 @@
 package com.permissionx.app
 
 import android.Manifest
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +17,11 @@ class MainFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -24,10 +29,15 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        val context = context!!
+        binding.javabtn.setOnClickListener {
+            //获取intent对象
+            var intent = Intent(context, MainJavaActivity::class.java);
+            startActivity(intent)
+        }
         binding.makeRequestBtn.setOnClickListener {
-            PermissionX.init(this)
+            val p = PermissionX.init(this)
                 .permissions(
-                Manifest.permission.CAMERA,
+                    Manifest.permission.CAMERA,
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.RECORD_AUDIO,
 //                    Manifest.permission.READ_CALENDAR,
@@ -37,9 +47,10 @@ class MainFragment : Fragment() {
 //                    Manifest.permission.BODY_SENSORS,
 //                    Manifest.permission.ACTIVITY_RECOGNITION,
 //                    Manifest.permission.SEND_SMS,
-//                    Manifest.permission.READ_EXTERNAL_STORAGE
+                    Manifest.permission.READ_EXTERNAL_STORAGE
                 )
-                .onExplainRequestReason { scope, deniedList, beforeRequest ->
+            p.cancel = false
+            p.onExplainRequestReason { scope, deniedList, beforeRequest ->
                     val message = "PermissionX needs following permissions to continue"
                     scope.showRequestReasonDialog(deniedList, message, "Allow", "Deny")
 //                    val message = "Please allow the following permissions in settings"
@@ -53,9 +64,14 @@ class MainFragment : Fragment() {
                 }
                 .request { allGranted, grantedList, deniedList ->
                     if (allGranted) {
-                        Toast.makeText(activity, "All permissions are granted", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "All permissions are granted", Toast.LENGTH_SHORT)
+                            .show()
                     } else {
-                        Toast.makeText(activity, "The following permissions are denied：$deniedList", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            activity,
+                            "The following permissions are denied：$deniedList",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
         }

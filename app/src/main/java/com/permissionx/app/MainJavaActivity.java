@@ -29,7 +29,7 @@ public class MainJavaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 PermissionX.init(MainJavaActivity.this)
                         .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        .explainReasonBeforeRequest()
+//                        .explainReasonBeforeRequest()
                         .onExplainRequestReason(new ExplainReasonCallbackWithBeforeParam() {
                             @Override
                             public void onExplainReason(ExplainScope scope, List<String> deniedList, boolean beforeRequest) {
