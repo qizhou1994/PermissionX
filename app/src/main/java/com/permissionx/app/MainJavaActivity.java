@@ -1,7 +1,9 @@
 package com.permissionx.app;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -32,10 +34,16 @@ public class MainJavaActivity extends AppCompatActivity {
 //                        .explainReasonBeforeRequest()
                         .onExplainRequestReason(new ExplainReasonCallbackWithBeforeParam() {
                             @Override
-                            public void onExplainReason(ExplainScope scope, List<String> deniedList, boolean beforeRequest) {
+                            public void onExplainReason(final ExplainScope scope, final List<String> deniedList, boolean beforeRequest) {
 //                                CustomDialog customDialog = new CustomDialog(MainJavaActivity.this, "PermissionX needs following permissions to continue", deniedList);
 //                                scope.showRequestReasonDialog(customDialog);
-                                scope.showRequestReasonDialog(deniedList, "PermissionX needs following permissions to continue", "Allow");
+                                scope.showRequestReasonDialog(deniedList, "PermissionX needs following permissions to continue", "Allow", "cas", new DialogInterface.OnCancelListener() {
+                                    @Override
+                                    public void onCancel(DialogInterface dialog) {
+                                        Log.e("aaa","aaaa");
+                                        scope.showRequestSettingDialog(deniedList, "PermissionX needs following permissions to continue", "Allow", "cas",null);
+                                    }
+                                });
                             }
                         })
                         .onForwardToSettings(new ForwardToSettingsCallback() {

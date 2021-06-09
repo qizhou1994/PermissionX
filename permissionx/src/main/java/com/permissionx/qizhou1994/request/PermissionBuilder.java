@@ -274,6 +274,11 @@ public class PermissionBuilder {
         showHandlePermissionDialog(chainTask, showReasonOrGoSettings, defaultDialog);
     }
 
+    void showHandlePermissionDialog(final ChainTask chainTask, final boolean showReasonOrGoSettings, final List<String> permissions, String message, String positiveText, String negativeText, DialogInterface.OnCancelListener onCancelListener) {
+        DefaultDialog defaultDialog = new DefaultDialog(activity, permissions, message, positiveText, negativeText, lightColor, darkColor);
+        showHandlePermissionDialog(chainTask, showReasonOrGoSettings, defaultDialog,onCancelListener);
+    }
+
     /**
      * This method is internal, and should not be called by developer.
      * <p>
@@ -284,6 +289,51 @@ public class PermissionBuilder {
      * @param dialog                 Dialog to explain to user why these permissions are necessary.
      */
     public boolean cancel = true;
+    void showHandlePermissionDialog(final ChainTask chainTask, final boolean showReasonOrGoSettings, @NonNull final RationaleDialog dialog, DialogInterface.OnCancelListener onCancelListener) {
+
+        final List<String> permissions = dialog.getPermissionsToRequest();
+        if (permissions.isEmpty()) {
+            chainTask.finish();
+            return;
+        }
+        currentDialog = dialog;
+        dialog.show();
+        View positiveButton = dialog.getPositiveButton();
+        View negativeButton = dialog.getNegativeButton();
+        dialog.setCancelable(cancel);
+        dialog.setCanceledOnTouchOutside(cancel);
+        if(onCancelListener!=null){
+            dialog.setOnCancelListener(onCancelListener);
+        }
+        positiveButton.setClickable(true);
+        positiveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                if (showReasonOrGoSettings) {
+                    chainTask.requestAgain(permissions);
+                } else {
+                    forwardToSettings(permissions);
+                }
+            }
+        });
+        if (negativeButton != null) {
+            negativeButton.setClickable(true);
+            negativeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.dismiss();
+                    chainTask.finish();
+                }
+            });
+        }
+        currentDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                currentDialog = null;
+            }
+        });
+    }
     void showHandlePermissionDialog(final ChainTask chainTask, final boolean showReasonOrGoSettings, @NonNull final RationaleDialog dialog) {
 //        showDialogCalled = true;
         final List<String> permissions = dialog.getPermissionsToRequest();

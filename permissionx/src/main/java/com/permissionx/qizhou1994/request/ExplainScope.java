@@ -16,6 +16,8 @@
 
 package com.permissionx.qizhou1994.request;
 
+import android.content.DialogInterface;
+
 import androidx.annotation.NonNull;
 
 import com.permissionx.qizhou1994.dialog.RationaleDialog;
@@ -54,6 +56,13 @@ public class ExplainScope {
         pb.showHandlePermissionDialog(chainTask, true, permissions, message, positiveText, negativeText);
     }
 
+    public void showRequestReasonDialog(List<String> permissions, String message, String positiveText, String negativeText, DialogInterface.OnCancelListener cancelListener) {
+        pb.showHandlePermissionDialog(chainTask, true, permissions, message, positiveText, negativeText,cancelListener);
+    }
+    public void showRequestSettingDialog(List<String> permissions, String message, String positiveText, String negativeText, DialogInterface.OnCancelListener cancelListener) {
+        pb.showHandlePermissionDialog(chainTask, false, permissions, message, positiveText, negativeText,cancelListener);
+    }
+
     /**
      * Show a rationale dialog to explain to user why you need these permissions.
      * @param permissions
@@ -64,9 +73,11 @@ public class ExplainScope {
      *          Text on the positive button. When user click, PermissionX will request permissions again.
      */
     public void showRequestReasonDialog(List<String> permissions, String message, String positiveText) {
-        showRequestReasonDialog(permissions, message, positiveText, null);
+        showRequestReasonDialog(permissions, message, positiveText, null,null);
     }
-
+    public void showRequestReasonDialog(List<String> permissions, String message, String positiveText,DialogInterface.OnCancelListener cancelListener) {
+        showRequestReasonDialog(permissions, message, positiveText, null,cancelListener);
+    }
     /**
      * Show a rationale dialog to explain to user why you need these permissions.
      * @param dialog
