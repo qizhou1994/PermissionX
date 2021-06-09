@@ -41,6 +41,7 @@ class PermissionMediator {
 
     constructor(fragment: Fragment) {
         this.fragment = fragment
+        this.activity = fragment.activity
     }
 
     /**
